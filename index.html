@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Kritika 👑</title>
+<title>This Is For You Kritika 👑</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
 
 <style>
 * {
@@ -16,122 +17,137 @@
 
 body {
   min-height: 100vh;
-  overflow: hidden;
+  background: radial-gradient(ellipse at center, #40131f, #100609 65%, #030203);
+  color: #ffe4a1;
+  font-family: Cinzel, serif;
+  overflow-x: hidden;
+}
+
+nav {
   display: flex;
-  justify-content: center;
   align-items: center;
-  background:
-    radial-gradient(ellipse at 50% 40%, #40205b 0%, #160b27 48%, #05030c 100%);
-  color: white;
-  font-family: 'Cinzel', serif;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid #d5ad5b55;
+  background: #080406cc;
 }
 
-.scene {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  perspective: 1000px;
-  overflow: hidden;
+.logo {
+  font-size: 19px;
+  color: #f8d783;
 }
 
-.ambient {
-  position: absolute;
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  background: #ffbb38;
-  filter: blur(100px);
-  opacity: .17;
-  animation: glow 4s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  from { transform: scale(.8); opacity: .1; }
-  to { transform: scale(1.25); opacity: .28; }
-}
-
-.crown-wrap {
-  position: relative;
-  z-index: 2;
-  width: min(85vw, 410px);
-  animation: float 3s ease-in-out infinite;
-  filter: drop-shadow(0 20px 22px #0009);
-}
-
-.crown {
-  width: 100%;
-  overflow: visible;
-  transform-style: preserve-3d;
-  animation: royalTurn 8s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-18px); }
-}
-
-@keyframes royalTurn {
-  0%, 100% { transform: rotateY(-12deg) rotateX(3deg); }
-  50% { transform: rotateY(12deg) rotateX(-2deg); }
-}
-
-.title {
-  position: relative;
-  z-index: 3;
-  margin-top: 8px;
-  text-align: center;
-  padding: 0 15px;
-  animation: appear 2s ease both;
-}
-
-.small {
-  color: #ffe8ac;
+nav a {
+  color: #f7e4b9;
+  text-decoration: none;
+  margin: 0 7px;
   font-size: 11px;
-  letter-spacing: 6px;
-  margin-bottom: 16px;
-  text-shadow: 0 0 15px #ffd45e;
+}
+
+nav a:hover {
+  color: white;
+}
+
+.hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 25px;
+  flex-wrap: wrap;
+}
+
+.content {
+  text-align: center;
+  max-width: 520px;
+  animation: appear 2s ease;
+}
+
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #e8c16c;
 }
 
 h1 {
-  font-family: 'Great Vibes', cursive;
+  font-size: clamp(34px, 5vw, 58px);
   font-weight: 400;
-  font-size: clamp(39px, 10vw, 68px);
-  line-height: 1.2;
-  background: linear-gradient(
-    180deg, #fff9d8, #ffda69 35%,
-    #c88719 65%, #fff0ae 85%, #ad7013
-  );
-  background-size: 100% 200%;
-  -webkit-background-clip: text;
+  margin-top: 25px;
+}
+
+.name {
+  font: clamp(65px, 10vw, 110px) 'Great Vibes', cursive;
+  background: linear-gradient(#fff5c5, #d79b28, #fff0b1);
   background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
-  filter: drop-shadow(0 0 14px #f5b83955);
-  animation: goldShine 4s linear infinite;
+  filter: drop-shadow(0 0 18px #e7b84b55);
 }
 
-@keyframes goldShine {
-  0%, 100% { background-position: 0 0%; }
-  50% { background-position: 0 100%; }
-}
-
-.subtitle {
-  margin-top: 16px;
-  color: #f6dca2;
+.message {
+  margin: 25px 0;
   font-size: 10px;
-  letter-spacing: 4px;
-  opacity: .85;
+  letter-spacing: 2px;
+  line-height: 2;
 }
 
-.line {
-  width: 100px;
-  height: 1px;
-  margin: 20px auto 0;
-  background: linear-gradient(90deg, transparent, #ffda77, transparent);
-  box-shadow: 0 0 10px #ffcf62;
+.btn {
+  display: inline-block;
+  padding: 14px 22px;
+  border: 1px solid #d9b66d;
+  color: #ffe7ad;
+  text-decoration: none;
+  font-size: 11px;
+  transition: .3s;
+  cursor: pointer;
+  background: #32111a;
+}
+
+.btn:hover {
+  background: #8b5422;
+  box-shadow: 0 0 25px #e5b64c55;
+  transform: translateY(-3px);
+}
+
+.crown-box {
+  width: min(90vw, 480px);
+  text-align: center;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 360px;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+.caption {
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin-top: 8px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #c7a76b;
+  font-size: 11px;
+}
+
+.heart {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99;
+  animation: fly 2s ease-out forwards;
+}
+
+@keyframes fly {
+  to {
+    transform: translateY(-250px) rotate(35deg);
+    opacity: 0;
+  }
 }
 
 @keyframes appear {
@@ -139,234 +155,274 @@ h1 {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.sparkles {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.spark {
-  position: absolute;
-  color: #ffe7a0;
-  text-shadow: 0 0 10px #ffca43, 0 0 22px #ffbb2d;
-  animation: sparkle linear infinite;
-}
-
-@keyframes sparkle {
-  0% { transform: translateY(30px) scale(0); opacity: 0; }
-  20% { opacity: 1; }
-  80% { opacity: .9; }
-  100% { transform: translateY(-110px) scale(1.3); opacity: 0; }
-}
-
-.floor {
-  position: absolute;
-  bottom: 9%;
-  width: min(75vw, 340px);
-  height: 40px;
-  border-radius: 50%;
-  background: #e8a9ff;
-  filter: blur(38px);
-  opacity: .14;
-}
-
-.hint {
-  position: absolute;
-  bottom: 22px;
-  font-family: Arial, sans-serif;
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: #bca9cf;
-  opacity: .7;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 15s !important;
-  }
+@media(max-width: 650px) {
+  nav { flex-wrap: wrap; gap: 12px; justify-content: center; }
+  nav a { margin: 5px; }
+  .hero { padding-top: 35px; gap: 10px; }
+  canvas { height: 280px; }
 }
 </style>
 </head>
 
 <body>
-<div class="scene">
-  <div class="ambient"></div>
-  <div class="sparkles" id="sparkles"></div>
-  <div class="floor"></div>
 
-  <div class="crown-wrap">
-    <svg class="crown" viewBox="0 0 420 310"
-         xmlns="http://www.w3.org/2000/svg">
-
-      <defs>
-        <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#fff5b7"/>
-          <stop offset=".18" stop-color="#d99a24"/>
-          <stop offset=".32" stop-color="#fff0a0"/>
-          <stop offset=".5" stop-color="#a96209"/>
-          <stop offset=".68" stop-color="#f8cb54"/>
-          <stop offset=".85" stop-color="#b77713"/>
-          <stop offset="1" stop-color="#fff0a2"/>
-        </linearGradient>
-
-        <linearGradient id="front" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#fff2a6"/>
-          <stop offset=".2" stop-color="#e9ae32"/>
-          <stop offset=".55" stop-color="#a9620a"/>
-          <stop offset=".8" stop-color="#f2bd47"/>
-          <stop offset="1" stop-color="#77420b"/>
-        </linearGradient>
-
-        <linearGradient id="ruby" x1="0" y1="0" x2="1" y2="1">
-          <stop stop-color="#fff0ff"/>
-          <stop offset=".35" stop-color="#ef78d9"/>
-          <stop offset=".7" stop-color="#a30d8c"/>
-          <stop offset="1" stop-color="#ffd5ff"/>
-        </linearGradient>
-
-        <linearGradient id="diamond" x1="0" y1="0" x2="1" y2="1">
-          <stop stop-color="#fff"/>
-          <stop offset=".45" stop-color="#a9eaff"/>
-          <stop offset=".7" stop-color="#f6d9ff"/>
-          <stop offset="1" stop-color="#fff"/>
-        </linearGradient>
-
-        <filter id="shine">
-          <feGaussianBlur stdDeviation="2.4" result="blur"/>
-          <feMerge>
-            <feMergeNode in="blur"/>
-            <feMergeNode in="SourceGraphic"/>
-          </feMerge>
-        </filter>
-      </defs>
-
-      <!-- Back silhouette -->
-      <path d="M70 115 L30 40 L105 88 L140 15
-               L210 75 L280 15 L315 88 L390 40
-               L350 115 L335 205 L85 205 Z"
-            fill="#7a450c" stroke="#ffdf77" stroke-width="4"/>
-
-      <!-- Main crown body -->
-      <path d="M30 40 L105 88 L140 15 L210 75
-               L280 15 L315 88 L390 40
-               L345 205 L75 205 Z"
-            fill="url(#gold)" stroke="#fff0aa" stroke-width="3"
-            stroke-linejoin="round"/>
-
-      <!-- Inner gold facets -->
-      <path d="M30 40 L150 125 L105 88 Z"
-            fill="#fff1a0" opacity=".55"/>
-      <path d="M140 15 L180 135 L210 75 Z"
-            fill="#fff7c4" opacity=".45"/>
-      <path d="M280 15 L240 135 L210 75 Z"
-            fill="#ffdf69" opacity=".7"/>
-      <path d="M390 40 L270 125 L315 88 Z"
-            fill="#fff0a4" opacity=".55"/>
-
-      <!-- Center jewel mount -->
-      <path d="M175 95 L210 70 L245 95 L235 140
-               L185 140 Z"
-            fill="url(#gold)" stroke="#fff1b3" stroke-width="2"/>
-
-      <!-- Large diamond -->
-      <path d="M210 83 L235 105 L210 137 L185 105 Z"
-            fill="url(#diamond)" stroke="#fff" stroke-width="2"
-            filter="url(#shine)"/>
-      <path d="M210 83 L210 137 M185 105 L235 105"
-            stroke="#ffffff" stroke-width="1" opacity=".8"/>
-
-      <!-- Side gemstones -->
-      <g stroke="#ffe8a0" stroke-width="2">
-        <path d="M105 92 L123 111 L105 135 L87 111 Z"
-              fill="url(#ruby)"/>
-        <path d="M315 92 L333 111 L315 135 L297 111 Z"
-              fill="url(#ruby)"/>
-        <path d="M153 120 L167 134 L153 151 L139 134 Z"
-              fill="url(#diamond)"/>
-        <path d="M267 120 L281 134 L267 151 L253 134 Z"
-              fill="url(#diamond)"/>
-      </g>
-
-      <!-- Decorative circular studs -->
-      <g fill="#fff1b2" stroke="#b97916" stroke-width="2">
-        <circle cx="69" cy="142" r="7"/>
-        <circle cx="351" cy="142" r="7"/>
-        <circle cx="125" cy="165" r="6"/>
-        <circle cx="295" cy="165" r="6"/>
-        <circle cx="210" cy="158" r="7"/>
-      </g>
-
-      <!-- Ornate lower band -->
-      <path d="M75 174 Q210 215 345 174
-               L354 220 Q210 270 66 220 Z"
-            fill="url(#front)" stroke="#ffe7a0" stroke-width="3"/>
-
-      <path d="M73 191 Q210 230 347 191"
-            fill="none" stroke="#fff2b0" stroke-width="3"/>
-
-      <path d="M66 220 Q210 270 354 220
-               L348 247 Q210 300 72 247 Z"
-            fill="url(#gold)" stroke="#ffe6a0" stroke-width="3"/>
-
-      <!-- Beaded base -->
-      <path d="M73 247 Q210 296 347 247"
-            fill="none" stroke="#fff3b7" stroke-width="3"/>
-
-      <g fill="#fff0a0" stroke="#b57a18" stroke-width="1">
-        <circle cx="91" cy="241" r="4"/>
-        <circle cx="120" cy="255" r="4"/>
-        <circle cx="151" cy="265" r="4"/>
-        <circle cx="181" cy="271" r="4"/>
-        <circle cx="210" cy="273" r="5"/>
-        <circle cx="239" cy="271" r="4"/>
-        <circle cx="269" cy="265" r="4"/>
-        <circle cx="300" cy="255" r="4"/>
-        <circle cx="329" cy="241" r="4"/>
-      </g>
-
-      <!-- Glints -->
-      <g fill="#fff" filter="url(#shine)">
-        <path d="M140 2 L144 12 L154 16 L144 20 L140 30
-                 L136 20 L126 16 L136 12 Z"/>
-        <path d="M280 3 L283 11 L291 14 L283 17 L280 25
-                 L277 17 L269 14 L277 11 Z"/>
-        <path d="M210 53 L213 61 L221 64 L213 67
-                 L210 75 L207 67 L199 64 L207 61 Z"/>
-      </g>
-    </svg>
+<nav>
+  <div class="logo">♛ For Kritika</div>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="letter.html">Letter</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="story.html">Story</a>
+    <a href="surprise.html">Surprise</a>
   </div>
+</nav>
 
-  <div class="title">
-    <div class="small">✦ A LITTLE GIFT FOR YOU ✦</div>
-    <h1>This is for you<br>Kritika</h1>
-    <div class="line"></div>
-    <div class="subtitle">YOU ARE ONE OF A KIND</div>
-  </div>
+<main class="hero">
 
-  <div class="hint">✧ MADE WITH LOVE ✧</div>
-</div>
+  <section class="content">
+    <p class="eyebrow">✦ A LITTLE GIFT JUST FOR YOU ✦</p>
+
+    <h1>This Is For You</h1>
+
+    <div class="name">Kritika</div>
+
+    <p class="message">
+      YOU ARE SPECIAL ✦ YOU ARE CHERISHED ✦<br>
+      YOU ARE ONE OF A KIND
+    </p>
+
+    <a class="btn" href="letter.html">
+      Open Your Love Letter ♥
+    </a>
+
+    <br><br>
+
+    <button class="btn" onclick="hearts()">
+      Send Some Love ♡
+    </button>
+  </section>
+
+  <section class="crown-box">
+    <canvas id="crown"></canvas>
+    <p class="caption">✦ THE QUEEN OF THIS LITTLE WORLD ✦</p>
+    <p style="font-size:11px;margin-top:12px">
+      Drag the crown to rotate it
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  Made with love ♥ especially for Kritika
+</footer>
 
 <script>
-const layer = document.getElementById('sparkles');
+const canvas = document.getElementById("crown");
 
-function createSparkle() {
-  const s = document.createElement('span');
-  s.className = 'spark';
-  s.textContent = Math.random() > .5 ? '✦' : '✧';
-  s.style.left = Math.random() * 100 + '%';
-  s.style.top = (30 + Math.random() * 65) + '%';
-  s.style.fontSize = (8 + Math.random() * 18) + 'px';
-  s.style.animationDuration = (3 + Math.random() * 4) + 's';
-  layer.appendChild(s);
+const renderer = new THREE.WebGLRenderer({
+  canvas,
+  alpha: true,
+  antialias: true
+});
 
-  setTimeout(() => s.remove(), 7500);
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.4;
+
+const scene = new THREE.Scene();
+
+const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
+camera.position.set(0, 1.7, 8);
+
+scene.add(new THREE.AmbientLight(0xffffff, 1.3));
+
+function light(color, intensity, x, y, z) {
+  const l = new THREE.PointLight(color, intensity);
+  l.position.set(x, y, z);
+  scene.add(l);
 }
 
+light(0xffc04b, 100, 3, 4, 4);
+light(0xffffff, 80, -4, 2, 3);
+light(0xb61c48, 50, 0, 1, -3);
+
+const crown = new THREE.Group();
+scene.add(crown);
+
+const gold = new THREE.MeshStandardMaterial({
+  color: 0xeab13d,
+  metalness: 0.93,
+  roughness: 0.19
+});
+
+const brightGold = new THREE.MeshStandardMaterial({
+  color: 0xffe5a0,
+  metalness: 0.9,
+  roughness: 0.14
+});
+
+const ruby = new THREE.MeshPhysicalMaterial({
+  color: 0xb40037,
+  metalness: 0.25,
+  roughness: 0.12,
+  clearcoat: 1
+});
+
+const diamond = new THREE.MeshPhysicalMaterial({
+  color: 0xdaf5ff,
+  metalness: 0.1,
+  roughness: 0.04,
+  clearcoat: 1
+});
+
+function add(geometry, material, x, y, z) {
+  const mesh = new THREE.Mesh(geometry, material);
+  mesh.position.set(x, y, z);
+  crown.add(mesh);
+  return mesh;
+}
+
+// Crown's rounded golden base
+add(new THREE.CylinderGeometry(1.65, 1.85, 0.42, 64, 1, true),
+    gold, 0, -0.45, 0);
+
+function ring(radius, tube, y) {
+  const mesh = new THREE.Mesh(
+    new THREE.TorusGeometry(radius, tube, 12, 80),
+    brightGold
+  );
+  mesh.rotation.x = Math.PI / 2;
+  mesh.position.y = y;
+  crown.add(mesh);
+}
+
+ring(1.78, 0.07, -0.22);
+ring(1.82, 0.04, -0.67);
+
+// Golden crown arches and gemstone tips
+for (let i = 0; i < 9; i++) {
+  const angle = (i / 8 - 0.5) * Math.PI * 0.9;
+  const x = Math.sin(angle) * 1.7;
+  const z = Math.cos(angle) * 1.3;
+  const height = 1.05 + Math.cos(angle) * 0.85;
+
+  const points = [
+    new THREE.Vector3(x, -0.25, z),
+    new THREE.Vector3(x * 0.9, 0.2, z * 1.05),
+    new THREE.Vector3(x * 0.55, height * 0.7, z * 0.8),
+    new THREE.Vector3(x * 0.25, height, z * 0.6)
+  ];
+
+  const curve = new THREE.CatmullRomCurve3(points);
+
+  crown.add(new THREE.Mesh(
+    new THREE.TubeGeometry(curve, 40, 0.045, 10, false),
+    brightGold
+  ));
+
+  const gem = new THREE.Mesh(
+    new THREE.OctahedronGeometry(i === 4 ? 0.24 : 0.13, 1),
+    i === 4 ? diamond : (i % 2 ? diamond : ruby)
+  );
+
+  gem.position.set(x * 0.25, height + 0.12, z * 0.6);
+  crown.add(gem);
+}
+
+// Large central jewel
+const central = add(
+  new THREE.OctahedronGeometry(0.34, 1),
+  diamond, 0, 1.7, 0.85
+);
+
+// Red jewels across the front
+for (let i = -2; i <= 2; i++) {
+  add(
+    new THREE.OctahedronGeometry(0.17, 1),
+    ruby, i * 0.55, 0.1 + Math.abs(i) * 0.05, 1.55
+  );
+}
+
+// Small golden decorations
 for (let i = 0; i < 24; i++) {
-  setTimeout(createSparkle, i * 180);
+  const a = i / 24 * Math.PI * 2;
+  add(
+    new THREE.SphereGeometry(0.055, 12, 12),
+    brightGold,
+    Math.sin(a) * 1.82,
+    -0.43,
+    Math.cos(a) * 1.82
+  );
 }
 
-setInterval(createSparkle, 260);
+// Allow touch or mouse rotation
+let dragging = false;
+let lastX = 0;
+let velocity = 0;
+
+canvas.addEventListener("pointerdown", e => {
+  dragging = true;
+  lastX = e.clientX;
+  canvas.setPointerCapture(e.pointerId);
+});
+
+canvas.addEventListener("pointermove", e => {
+  if (!dragging) return;
+  const dx = e.clientX - lastX;
+  crown.rotation.y += dx * 0.012;
+  velocity = dx * 0.002;
+  lastX = e.clientX;
+});
+
+canvas.addEventListener("pointerup", () => dragging = false);
+canvas.addEventListener("pointercancel", () => dragging = false);
+
+function resize() {
+  const w = canvas.clientWidth;
+  const h = canvas.clientHeight;
+  renderer.setSize(w, h, false);
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+}
+
+new ResizeObserver(resize).observe(canvas);
+resize();
+
+function animate() {
+  requestAnimationFrame(animate);
+
+  if (!dragging) {
+    crown.rotation.y += 0.005 + velocity;
+    velocity *= 0.96;
+  }
+
+  crown.rotation.x = Math.sin(Date.now() * 0.0006) * 0.04;
+  crown.position.y = Math.sin(Date.now() * 0.001) * 0.08;
+
+  renderer.render(scene, camera);
+}
+
+animate();
+
+// Floating heart animation
+function hearts() {
+  for (let i = 0; i < 18; i++) {
+    const h = document.createElement("span");
+    h.className = "heart";
+    h.textContent = Math.random() > 0.5 ? "♥" : "♡";
+
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.top = (50 + Math.random() * 40) + "vh";
+    h.style.fontSize = (15 + Math.random() * 20) + "px";
+    h.style.color = Math.random() > 0.5 ? "#ffcf70" : "#ff6b8c";
+
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 2000);
+  }
+}
 </script>
+
 </body>
 </html>
