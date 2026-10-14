@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>This Is For You Kritika 👑</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="nav">
+  <a class="brand" href="./index.html">♛ For Kritika</a>
+  <button class="menu" aria-label="Open navigation" onclick="document.querySelector('.links').classList.toggle('show')">☰</button>
+  <div class="links">
+    <a href="./index.html">Home</a><a href="./about.html">About</a>
+    <a href="./letter.html">Love Letter</a><a href="./gallery.html">Gallery</a>
+    <a href="./story.html">Our Story</a><a href="./surprise.html">Surprise</a>
+  </div>
+</nav>
+
+<main class="hero">
+  <section class="copy">
+    <p class="eyebrow">✦ A LITTLE GIFT JUST FOR YOU ✦</p>
+    <h1>This Is For You</h1>
+    <div class="name">Kritika</div>
+    <p class="message">YOU ARE SPECIAL ✦ YOU ARE CHERISHED ✦<br>YOU ARE ONE OF A KIND</p>
+    <a class="btn" href="./letter.html">Open Your Love Letter ♥</a>
+    <button class="btn secondary" onclick="sendHearts(event)">Send Some Love ♡</button>
+  </section>
+
+  <section class="crown-area">
+    <div class="crown-fallback" id="crownFallback" aria-label="Golden crown">
+      <svg viewBox="0 0 420 320" role="img" aria-label="Golden crown with jewels">
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="0.8" y2="1">
+            <stop stop-color="#fff8c9"/><stop offset=".22" stop-color="#e7b447"/>
+            <stop offset=".43" stop-color="#fff0a2"/><stop offset=".68" stop-color="#a76710"/>
+            <stop offset=".86" stop-color="#ffdc72"/><stop offset="1" stop-color="#8e510c"/>
+          </linearGradient>
+          <linearGradient id="ruby" x1="0" y1="0" x2="1" y2="1">
+            <stop stop-color="#ffb6d4"/><stop offset=".5" stop-color="#c20d43"/><stop offset="1" stop-color="#57051b"/>
+          </linearGradient>
+          <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <g stroke="#ffe6a0" stroke-width="4" stroke-linejoin="round">
+          <path d="M55 105 L20 30 L115 91 L150 15 L210 78 L270 15 L305 91 L400 30 L365 105 L345 218 L75 218 Z" fill="url(#g)"/>
+          <path d="M75 218 Q210 270 345 218 L335 250 Q210 295 85 250 Z" fill="url(#g)"/>
+          <path d="M80 231 Q210 280 340 231" fill="none" stroke-width="3"/>
+        </g>
+        <g fill="url(#ruby)" stroke="#ffe5a0" stroke-width="3">
+          <path d="M210 87 L236 116 L210 151 L184 116 Z"/>
+          <path d="M112 105 L132 126 L112 150 L92 126 Z"/>
+          <path d="M308 105 L328 126 L308 150 L288 126 Z"/>
+        </g>
+        <g fill="#e9f8ff" stroke="#fff" stroke-width="2" filter="url(#glow)">
+          <path d="M150 15 L165 43 L150 59 L135 43 Z"/>
+          <path d="M270 15 L285 43 L270 59 L255 43 Z"/>
+          <path d="M210 55 L224 76 L210 92 L196 76 Z"/>
+        </g>
+        <g fill="#fff1b3" stroke="#a56b17" stroke-width="2">
+          <circle cx="92" cy="185" r="7"/><circle cx="145" cy="204" r="7"/>
+          <circle cx="210" cy="210" r="8"/><circle cx="275" cy="204" r="7"/>
+          <circle cx="328" cy="185" r="7"/>
+        </g>
+      </svg>
+    </div>
+    <p class="caption">✦ THE QUEEN OF THIS LITTLE WORLD ✦</p>
+    <p class="hint">Tap the crown to make it sparkle ✨</p>
+  </section>
+</main>
+<div class="hearts-layer" id="heartsLayer"></div>
+<footer>Made with love ♥ especially for Kritika</footer>
+<script src="script.js"></script>
+</body>
+</html>
